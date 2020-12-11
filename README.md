@@ -25,7 +25,7 @@ sm.show();
 ```
 - 3、支持状态主题，由节点中status属性决定
 <table border="solid 1px #E8E8E8" width="100%">
-	<thead style='background:gray;color:white;font-size:16'>
+	<thead style='background-color:gray;color:white;font-size:16'>
 		<tr>
 			<th width="200px">状态</th>
 			<th width="300px">描述</th>
@@ -36,32 +36,32 @@ sm.show();
 		<tr>
 			<th>default</th>
 			<th>默认</th>
-			<th background:#E8E8E8>&nbsp;</th>
+			<th style='background-color:#E8E8E8'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>active</th>
 			<th>活动</th>
-			<th background:#1E90FF>&nbsp;</th>
+			<th style='background-color:#1E90FF'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>success</th>
 			<th>成功</th>
-			<th style='background:#00CD66'>&nbsp;</th>
+			<th style='background-color:#00CD66'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>fail</th>
 			<th>失败</th>
-			<th style='background:#FF6A6A'>&nbsp;</th>
+			<th style='background-color:#FF6A6A'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>warning</th>
 			<th>警告</th>
-			<th style='background:#FFFF00'>&nbsp;</th>
+			<th style='background-color:#FFFF00'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>forbidden</th>
 			<th>禁用</th>
-			<th style='background:#B5B5B5'>&nbsp;</th>
+			<th style='background-color:#B5B5B5'>&nbsp;</th>
 		</tr>
 	</tbody>
 </table>
