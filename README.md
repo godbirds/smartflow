@@ -36,32 +36,32 @@ sm.show();
 		<tr>
 			<th>default</th>
 			<th>默认</th>
-			<th style='background-color:#E8E8E8'>&nbsp;</th>
+			<th style='color:#E8E8E8'>样色</th>
 		</tr>
 		<tr>
 			<th>active</th>
 			<th>活动</th>
-			<th style='background-color:#1E90FF'>&nbsp;</th>
+			<th style='color:#1E90FF'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>success</th>
 			<th>成功</th>
-			<th style='background-color:#00CD66'>&nbsp;</th>
+			<th style='color:#00CD66'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>fail</th>
 			<th>失败</th>
-			<th style='background-color:#FF6A6A'>&nbsp;</th>
+			<th style='color:#FF6A6A'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>warning</th>
 			<th>警告</th>
-			<th style='background-color:#FFFF00'>&nbsp;</th>
+			<th style='color:#FFFF00'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>forbidden</th>
 			<th>禁用</th>
-			<th style='background-color:#B5B5B5'>&nbsp;</th>
+			<th style='color:#B5B5B5'>&nbsp;</th>
 		</tr>
 	</tbody>
 </table>
