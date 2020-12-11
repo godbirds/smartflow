@@ -43,7 +43,9 @@
 		</div>
 		<hr/>
 		<!--startprint-->
-		<div id="demoId" style="overflow:auto;width: 100%;height:100%"></div>
+		<div id="demoId" style="overflow:auto;width: 100%;height:auto;background-color: #EBEBEB;">
+			
+		</div>
 		<!--endprint-->
 		<script>
 			
@@ -81,11 +83,23 @@
 			//console.log(data);
 			sm.setNodes(data);
 			// sm.setDirection("vertical");
+			sm.setViewTitle("<h3>当前展示标题，时间："+sm.getDateTime()+"<h3>");
+			sm.setWaterMark("<div style='background:black;color:white;font-size:20'>@CopyRisgh www.motry.net 时间："+sm.getDateTime()+"<div>");
+			sm.setStatusShow(true);//屏蔽状态标题栏
 			var times = sm.getNodes()[0].children.length;
-			showFlow();//初始化0开始
-			//点击回调函数监听
+			showFlow();//展示信息
+			
+			//点击回调函数监听,根据需求实现
 			sm.onClick(function(status,svg,node){
 				alert("点击了:title="+node.title);
+			});
+			//鼠标移入回调函数监听,根据需求实现
+			sm.onMouseOver(function(status,svg,node){
+				//console.log("鼠标移入:title="+node.title);
+			});
+			//鼠标移出回调函数监听,根据需求实现
+			sm.onMouseOut(function(status,svg,node){
+				//console.log("鼠标移出:title="+node.title);
 			});
 			//下一个节点，先暂停轮播自动切换下一个节点
 			function nextStep(){
@@ -146,7 +160,7 @@
 						sm.setChildren(ttnode,[]);
 					}
 				}
-				console.log("showFlow direction : "+sm.DefaultConfig.direction);
+				console.log("ShowFlow direction : "+sm.DefaultConfig.direction);
 				sm.show();
 				index = index+1;
 			}

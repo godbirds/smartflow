@@ -60,7 +60,7 @@ sm.show();
 </table>
 
 ## 二、使用案例
-- [案例展示](https://www.motry.net/smartflow)
+- [案例展示(待发布)](https://www.motry.net/smartflow)
 - [代码下载](https://github.com/godbirds/smartflow.git)
 
 ## 三、关于拓展
