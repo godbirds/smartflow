@@ -27,9 +27,9 @@ sm.show();
 <table border="solid 1px #E8E8E8" width="100%">
 	<thead>
 		<tr>
-			<th width="20%">状态</th>
-			<th width="30%">描述</th>
-			<th width="50%">标色</th>
+			<th width="200px">状态</th>
+			<th width="300px">描述</th>
+			<th width="200px">标色</th>
 		</tr>
 	</thead>
 	<tbody>
