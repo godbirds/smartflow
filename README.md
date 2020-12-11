@@ -23,10 +23,52 @@ sm.onClick(function(status,svg,node){
 });
 sm.show();
 ```
+- 3、支持状态主题，由节点中status属性决定
+<table border="solid 1px #E8E8E8" width="100%">
+	<thead>
+		<tr>
+			<th width="20%">状态</th>
+			<th width="30%">描述</th>
+			<th width="50%">标色</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>default</th>
+			<th>默认</th>
+			<th style='background:#E8E8E8'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th>active</th>
+			<th>活动</th>
+			<th style='background:#1E90FF'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th>success</th>
+			<th>成功</th>
+			<th style='background:#00CD66'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th>fail</th>
+			<th>失败</th>
+			<th style='background:#FF6A6A'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th>warning</th>
+			<th>警告</th>
+			<th style='background:#FFFF00'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th>forbidden</th>
+			<th>禁用</th>
+			<th style='background:#B5B5B5'>&nbsp;</th>
+		</tr>
+	</tbody>
+</table>
 
 ## 二、使用案例
-[案例展示](https://localhost)
-[代码下载](https://github.com/godbirds/smartflow.git)
+- [案例展示](https://www.motry.net/smartflow)
+- [代码下载](https://github.com/godbirds/smartflow.git)
 
 ## 三、关于拓展
 下载smartflow.js文件后，代码内有拓展注释。
