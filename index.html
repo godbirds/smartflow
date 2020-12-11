@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SmartFlow</title>
+		<script src="smartflow.js"></script>
+		<script>
+			var data=[
+				{id:"1",title:"SmartFlow",subtitle:"这是一个Demo",theme:'success',type:"react",
+					text:"节点树展示",describe:"工作流展示",remark:"https://www.motry.net",
+					children:[
+						{id:"11",title:"Hello11",subtitle:"World11",theme:'success',type:"react",
+						text:"文本11",describe:"这里是描述11",remark:"签名11签名签名签名签名签名签名",
+						children:[]},
+						{id:"12",title:"Hello12",subtitle:"World12",theme:'active',type:"react",
+						text:"文本12",describe:"这里是描述12",remark:"签名12签名签名签名签名签名签名",
+						children:[]},
+						{id:"13",title:"Hello13",subtitle:"World13",theme:'forbidden',type:"react",
+						text:"文本13",describe:"这里是描述13",remark:"签名13",
+						children:[]},
+						{id:"14",title:"Hello14",subtitle:"World14",theme:'fail',type:"react",
+						text:"文本14",describe:"这里是描述14",remark:"签名14",
+						children:[]},
+						{id:"15",title:"Hello15",subtitle:"World15",theme:'fail',type:"react",
+						text:"文本15",describe:"这里是描述15",remark:"签名15",
+						children:[]}
+						]
+				}];
+		</script>
+	</head>
+	<body>
+		<h1>SmartFlow Demo</h1>
+		<div>
+			<label for="interval">轮播间隔</label> 
+			<input value="5" id="interval" name="interval" onchange="onChange()"> 
+			<button onclick="startIntverval()">启动轮播</button> | 
+			<button onclick="stopIntverval()">暂停轮播</button> | 
+			<button onclick="lastStep()">上一个</button> | 
+			<button onclick="nextStep()">下一个</button> | 
+			<button onclick="reloadBatch()">刷新</button> | 
+			<button onclick="redirect()">转向</button> | 
+			<button onclick="onPrint()">打印</button>
+		</div>
+		<hr/>
+		<!--startprint-->
+		<div id="demoId" style="overflow:auto;width: 100%;height:100%"></div>
+		<!--endprint-->
+		<script>
+			
+			function getData(pid){
+				var children = new Array();
+				for(var i=1;i<=10;i++){
+					var data = {id:pid+"T"+i,title:"部门"+i,subtitle:getDateTime(),theme:'active',type:"react",
+							text:"表的ID为T"+i,describe:"正在处理",remark:"处理中",
+							children:[]};
+					var tables = new Array();
+					var size = Math.floor(Math.random()*6+1);
+					for(var j = 1; j<=size;j++){
+						var jnode = {id:pid+"P"+j+"P1",title:"T"+i+"表"+j,subtitle:getDateTime(),theme:'success',type:"react",
+						text:"入:"+getDateTime(),describe:"出:"+getDateTime(),remark:"已处理",
+						children:[]};
+						var ktables = new Array();
+						var ksize = Math.floor(Math.random()*3+1);
+						for(var k = 1; k<=ksize;k++){
+							ktables.push({id:pid+"P"+j+"P1",title:"T"+i+"表"+j,subtitle:getDateTime(),theme:'success',type:"react",
+							text:"入:"+getDateTime(),describe:"出:"+getDateTime(),remark:"已处理",
+							children:[]});
+						}
+						jnode.children = ktables;
+						tables.push(jnode);
+					}
+					data.children = tables;
+					children.push(data);
+				}
+				return children;
+			}
+			var index = 0;//索引标识
+			var interval = 0;//轮播标识
+			var obj = document.getElementById("demoId");
+			var sm = new SmartFlow(obj);
+			//console.log(data);
+			sm.setNodes(data);
+			// sm.setDirection("vertical");
+			var times = sm.getNodes()[0].children.length;
+			showFlow();//初始化0开始
+			//点击回调函数监听
+			sm.onClick(function(status,svg,node){
+				alert("点击了:title="+node.title);
+			});
+			//下一个节点，先暂停轮播自动切换下一个节点
+			function nextStep(){
+				stopIntverval();
+				showFlow();
+			}
+			
+			//下一个节点，先暂停轮播自动切换下一个节点
+			function lastStep(){
+				index = index-1-1;
+				stopIntverval();
+				showFlow();
+			}
+			
+			//暂停轮播
+			function stopIntverval(){
+				console.log("暂停轮播interval="+interval);
+				if(interval > 0){
+					clearInterval(interval);
+				}
+				document.getElementById("interval").disabled="disabled";
+				interval = 0;
+			}
+			//启动轮播
+			function startIntverval(){
+				console.log("启动定时器轮播")
+				if(interval > 0){
+					clearInterval(interval);
+				}
+				document.getElementById("interval").disabled=false;
+				var intv = document.getElementById("interval").value;
+				//intv秒钟执行一次
+				interval = setInterval(function(){
+					showFlow();
+				},intv*1000);
+			}
+			
+			/**
+			 * 展示流数据
+			 */
+			function showFlow(){
+				if(index >= times){
+					index = 0;//反转至前
+				}
+				if(index < 0){
+					index = times-1;//反转至后
+				}
+				var tnode = sm.getNodes()[0].children[index];
+				var intv = document.getElementById("interval").value;
+				var tnodes = getData(tnode.id);
+				for(var i=0; i < times; i++){
+					if(i == index){
+						//当前显示的节点赋值子节点
+						sm.setChildren(tnode,tnodes);
+					}else{
+						//非当前显示的节点清空子节点
+						var ttnode = sm.getNodes()[0].children[i];
+						sm.setChildren(ttnode,[]);
+					}
+				}
+				console.log("showFlow direction : "+sm.DefaultConfig.direction);
+				sm.show();
+				index = index+1;
+			}
+			/**
+			 * 重新刷新数据，或者或的子节点数据
+			 */
+			function reloadBatch(){
+				//这里动态去获取数据
+				var x = sm.getDateTime();
+				var data=[
+					{id:"1"+x,title:"Hello1"+x,subtitle:"World1",theme:'success',type:"react",
+						text:"文本",describe:"这里是描述",remark:"签名",
+						children:[
+							{id:"11"+x,title:"Hello11"+x,subtitle:"World11",theme:'active',type:"react",
+							text:"文本11",describe:"这里是描述11",remark:"签名11",
+							children:[]},
+							{id:"12"+x,title:"Hello12"+x,subtitle:"World12",theme:'active',type:"react",
+							text:"文本12",describe:"这里是描述12",remark:"签名12",
+							children:[]},
+							{id:"13"+x,title:"Hello13"+x,subtitle:"World13",theme:'forbidden',type:"react",
+							text:"文本13",describe:"这里是描述13",remark:"签名13",
+							children:[]},
+							{id:"14"+x,title:"Hello14"+x,subtitle:"World14",theme:'success',type:"react",
+							text:"文本14",describe:"这里是描述14",remark:"签名14",
+							children:[]}
+							]
+					}];
+				sm.setNodes(data);
+			}
+			/**
+			 * 转换方向,该事件会停止轮播，需要则重新开启
+			 */
+			function redirect(){
+				stopIntverval();
+				var b = sm.DefaultConfig.direction;
+				if(b=='horizontal'){
+					sm.setDirection('vertical');
+				}else{
+					sm.setDirection('horizontal');
+				}
+				var a = sm.DefaultConfig.direction;
+				console.log("方向置换前："+b+",置换后："+a);
+				showFlow(sm);
+			}
+			/**
+			 * 监听轮播控制间隔
+			 */
+			function onChange(){
+				startIntverval();
+			}
+			
+			/**
+			 * 打印事件
+			 */
+			function onPrint(){
+				var bdhtml = window.document.body.innerHTML; //获取当前页的html代码
+				sprnstr = "<!--startprint-->"; //设置打印开始区域
+				eprnstr = "<!--endprint-->"; //设置打印结束区域
+				prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17); //从开始代码向后取html
+				prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr)); //从结束代码向前取html
+				window.document.body.innerHTML = prnhtml;
+				window.print();
+			}
+			function getDateTime(){
+				return sm.getDateTime();
+			}
+		</script>
+	</body>
+</html>
