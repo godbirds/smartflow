@@ -70,5 +70,5 @@ sm.show();
 - [阿里云的服务器](https://www.aliyun.com/minisite/goods?taskCode=pintuan20201212&recordId=298718&userCode=b2yi9nin)
 - [阿里云新人福利](https://www.aliyun.com/1111/new?userCode=b2yi9nin)
 
-## 五、有用就打个赏吧
+## 五、有用就点个Star吧
 ![赞赏](https://upload-images.jianshu.io/upload_images/9599406-dbbf508da73177b3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
