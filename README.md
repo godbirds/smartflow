@@ -25,7 +25,7 @@ sm.show();
 ```
 - 3、支持状态主题，由节点中status属性决定
 <table border="solid 1px #E8E8E8" width="100%">
-	<thead>
+	<thead style='background:gray;color:white;font-size:16'>
 		<tr>
 			<th width="200px">状态</th>
 			<th width="300px">描述</th>
@@ -36,12 +36,12 @@ sm.show();
 		<tr>
 			<th>default</th>
 			<th>默认</th>
-			<th style='background:#E8E8E8'>&nbsp;</th>
+			<th background:#E8E8E8>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>active</th>
 			<th>活动</th>
-			<th style='background:#1E90FF'>&nbsp;</th>
+			<th background:#1E90FF>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>success</th>
