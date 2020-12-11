@@ -29,39 +29,32 @@ sm.show();
 		<tr>
 			<th width="200px">状态</th>
 			<th width="300px">描述</th>
-			<th width="200px">标色</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>default</th>
 			<th>默认</th>
-			<th style='color:#E8E8E8'>样色</th>
 		</tr>
 		<tr>
 			<th>active</th>
 			<th>活动</th>
-			<th style='color:#1E90FF'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>success</th>
 			<th>成功</th>
-			<th style='color:#00CD66'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>fail</th>
 			<th>失败</th>
-			<th style='color:#FF6A6A'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>warning</th>
 			<th>警告</th>
-			<th style='color:#FFFF00'>&nbsp;</th>
 		</tr>
 		<tr>
 			<th>forbidden</th>
 			<th>禁用</th>
-			<th style='color:#B5B5B5'>&nbsp;</th>
 		</tr>
 	</tbody>
 </table>
