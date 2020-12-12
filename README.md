@@ -8,6 +8,7 @@
 ## 一、如何使用
 - 1、克隆下载smartflow.js通过script标签引入项目
 - 2、新建一个SmartFlow对象设置其数据以及调用show方法
+- 3、使用案例参考[演示地址](http://www.motry.net/smartflow)中的Demo
 ```
 //获取DIV展示容器
 var obj = document.getElementById("demoId");
@@ -24,43 +25,18 @@ sm.onClick(function(status,svg,node){
 sm.show();
 ```
 - 3、支持状态主题，由节点中status属性决定
-<table border="solid 1px #E8E8E8" width="100%">
-	<thead style='background-color:gray;color:white;font-size:16'>
-		<tr>
-			<th width="200px">状态</th>
-			<th width="300px">描述</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>default</th>
-			<th>默认</th>
-		</tr>
-		<tr>
-			<th>active</th>
-			<th>活动</th>
-		</tr>
-		<tr>
-			<th>success</th>
-			<th>成功</th>
-		</tr>
-		<tr>
-			<th>fail</th>
-			<th>失败</th>
-		</tr>
-		<tr>
-			<th>warning</th>
-			<th>警告</th>
-		</tr>
-		<tr>
-			<th>forbidden</th>
-			<th>禁用</th>
-		</tr>
-	</tbody>
-</table>
+
+| 状态 | 描述 |
+| :-----| :---- |
+| default | 默认 |
+| active | 活动 |
+| success | 成功 |
+| fail | 失败 |
+| warning | 警告 |
+| forbidden | 禁用 |
 
 ## 二、使用案例
-- [案例展示](http://www.motry.net/smartflow)
+- [演示地址](http://www.motry.net/smartflow)
 - [代码下载](https://github.com/godbirds/smartflow.git)
 
 ## 三、关于拓展
@@ -71,4 +47,4 @@ sm.show();
 - [阿里云新人福利](https://www.aliyun.com/1111/new?userCode=b2yi9nin)
 
 ## 五、有用就点个Star吧
-![赞赏](https://upload-images.jianshu.io/upload_images/9599406-dbbf508da73177b3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![赞赏](https://images.gitee.com/uploads/images/2020/1212/182216_ab43082a_1506477.jpeg "zanshang_20201211155826.jpg")
