@@ -6,22 +6,22 @@
 		<script src="smartflow.js"></script>
 		<script>
 			var data=[
-				{id:"1",title:"SmartFlow",subtitle:"这是一个Demo",theme:'success',type:"react",
+				{id:"1",title:"SmartFlow",subtitle:"这是一个Demo",theme:'active',type:"react",
 					text:"节点树展示",describe:"工作流展示",remark:"https://www.motry.net",
 					children:[
-						{id:"11",title:"Hello11",subtitle:"World11",theme:'success',type:"react",
-						text:"文本11",describe:"这里是描述11",remark:"签名11签名签名签名签名签名签名",
+						{id:"11",title:"Hello",subtitle:"China",theme:'success',type:"react",
+						text:"你好中国",describe:"中华人民共和国",remark:"犯我中华者随缘必诛",
 						children:[]},
-						{id:"12",title:"Hello12",subtitle:"World12",theme:'active',type:"react",
-						text:"文本12",describe:"这里是描述12",remark:"签名12签名签名签名签名签名签名",
+						{id:"12",title:"出塞",subtitle:"大唐.王昌龄",theme:'success',type:"react",
+						text:"但使龙城飞将在",describe:"不教胡马度阴山",remark:"------诗词名句",
 						children:[]},
-						{id:"13",title:"Hello13",subtitle:"World13",theme:'forbidden',type:"react",
-						text:"文本13",describe:"这里是描述13",remark:"签名13",
+						{id:"13",title:"凉州词",subtitle:"大唐.王翰",theme:'success',type:"react",
+						text:"醉卧沙场君莫笑",describe:"古来征战几人回",remark:"------诗词名句",
 						children:[]},
-						{id:"14",title:"Hello14",subtitle:"World14",theme:'fail',type:"react",
-						text:"文本14",describe:"这里是描述14",remark:"签名14",
+						{id:"14",title:"赤壁",subtitle:"大唐.杜牧",theme:'success',type:"react",
+						text:"东风不与周郎便",describe:"铜雀春深锁二乔",remark:"------诗词名句",
 						children:[]},
-						{id:"15",title:"Hello15",subtitle:"World15",theme:'fail',type:"react",
+						{id:"15",title:"总公司",subtitle:"controlling company",theme:'fail',type:"react",
 						text:"文本15",describe:"这里是描述15",remark:"签名15",
 						children:[]}
 						]
@@ -29,7 +29,11 @@
 		</script>
 	</head>
 	<body>
-		<h1>SmartFlow Demo</h1>
+		<h1 >SmartFlow Demo</h1>
+		<ul style="width: 100%;margin-bottom: 10px;">
+			<li>源码地址(github)：<a href="https://github.com/godbirds/smartflow">https://github.com/godbirds/smartflow</a></li>
+			<li>源码地址(gitee)：<a href="https://gitee.com/godbirds/smartflow">https://gitee.com/godbirds/smartflow</a></li>
+		</ul>
 		<div>
 			<label for="interval">轮播间隔</label> 
 			<input value="5" id="interval" name="interval" onchange="onChange()"> 
@@ -43,9 +47,7 @@
 		</div>
 		<hr/>
 		<!--startprint-->
-		<div id="demoId" style="overflow:auto;width: 100%;height:auto;background-color: #EBEBEB;">
-			
-		</div>
+		<div id="demoId" style="overflow:auto;width: 100%;height:auto;background-color: #EBEBEB;"></div>
 		<!--endprint-->
 		<script>
 			
@@ -83,8 +85,9 @@
 			//console.log(data);
 			sm.setNodes(data);
 			// sm.setDirection("vertical");
-			sm.setViewTitle("<h3>当前展示标题，时间："+sm.getDateTime()+"<h3>");
-			sm.setWaterMark("<div style='background:black;color:white;font-size:20'>@CopyRisgh www.motry.net 时间："+sm.getDateTime()+"<div>");
+			sm.setViewTitle("<h3>当前展示标题内容，根据需求自由设置展示，内容可以是一段有效的HTML代码！");
+			// 页脚水印设置甚至可以是一个<iframe src="" width="100%" height="auto"></iframe>，地址指定自定义的HTML
+			sm.setWaterMark("<div style='color:gray;font-size:20'>&copy;CopyRight www.motry.net 当前时间："+sm.getDateTime()+"<div>");
 			sm.setStatusShow(true);//屏蔽状态标题栏
 			var times = sm.getNodes()[0].children.length;
 			showFlow();//展示信息
