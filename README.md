@@ -60,11 +60,11 @@ sm.show();
 </table>
 
 ## 二、使用案例
-- [案例展示(待发布)](https://www.motry.net/smartflow)
+- [案例展示](http://www.motry.net/smartflow)
 - [代码下载](https://github.com/godbirds/smartflow.git)
 
 ## 三、关于拓展
-下载smartflow.js文件后，代码内有拓展注释。
+下载smartflow.js文件后，代码内有拓展注释。自定义更改更新等一看注释都明白！
 
 ## 四、友情推广
 - [阿里云的服务器](https://www.aliyun.com/minisite/goods?taskCode=pintuan20201212&recordId=298718&userCode=b2yi9nin)
